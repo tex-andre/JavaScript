@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>JavaScript Data e Hora</title>
+        <meta charset="UTF-8">
+        <script>
+                var hoje = new Date();
+                var diaS = hoje.getDay();
+                var diasSemana = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
+                var dia = hoje.getDate();
+                var mes = hoje.getMonth() + 1;
+                var ano = hoje.getFullYear();
+                document.write("Hoje é " + diasSemana[diaS] + ", " + dia + "-" + mes + "-" + ano + "<br>");
+                
+                var hora = hoje.getHours();
+                var minutos = hoje.getMinutes();
+                var segundos = hoje.getSeconds();
+                document.write("Hora atual " + hora + ":" + minutos + ":" + segundos);
+                
+        </script>
+           
+    </head>
+    
+    <body>
+        <script>
+            
+        </script>
+        
+    </body>
+</html>
