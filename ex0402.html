@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ex0402</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var largPa, comPa, altPa, volumePa, areaPa, raioCil, altCil, volumeCil, areaCil, raioEsf, volumeEsf, areaEsf;
+            function inic(){
+                largPa = document.getElementById("largPa"); 
+                comPa = document.getElementById("comPa");
+                altPa = document.getElementById("altPa");
+                volumePa = document.getElementById("volumePa");
+                areaPa = document.getElementById("areaPa");
+                raioCil = document.getElementById("raioCil"); 
+                altCil = document.getElementById("altCil"); 
+                volumeCil = document.getElementById("volumeCil");
+                areaCil = document.getElementById("areaCil"); 
+                raioEsf = document.getElementById("raioEsf");
+                volumeEsf = document.getElementById("volumeEsf"); 
+                areaEsf = document.getElementById("areaEsf");
+            }
+            function volumeParalelipipedo(l, c, a){
+                return (l*c*a);
+            }
+            function areaParalelipipedo(l, c, a){
+                return 2*(l*c + l*a + a*c);
+            }
+            function calcPa(){
+                var l, c, a;
+                l = parseInt(largPa.value);
+                c = parseInt(comPa.value);
+                a = parseInt(altPa.value);
+                volumePa.value = volumeParalelipipedo(l, c, a);
+                areaPa.value = areaParalelipipedo(l, c, a);
+            }
+            function volumeCilindro(raio, alt){
+                return Math.PI*Math.pow(raio, 2)*alt;
+            }
+            function areaCilindro(raio, alt){
+                return 2*Math.PI*Math.pow(raio, 2) + alt*2*Math.PI*raio;
+            }
+            function calcCil(){
+                var raio, alt;
+                raio = parseInt(raioCil.value);
+                alt = parseInt(altCil.value);
+                volumeCil.value = volumeCilindro(raio, alt);
+                areaCil.value = areaCilindro(raio, alt);
+            }
+            function volumeEsfera(raio){
+                return 4*Math.PI*Math.pow(raio, 3)/3;
+            }
+            function areaEsfera(raio){
+                return 4*Math.PI*Math.pow(raio, 2);
+            }
+            function calcEsf(){
+                var raio;
+                raio = parseInt(raioEsf.value);
+                volumeEsf.value = volumeEsfera(raio);
+                areaEsf.value = areaEsfera(raio);
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Volumes e Areas Totais de alguns solidos simples</h2>
+        <h3>Volume e area total de um paralelipipedo</h3>
+        <span>largura:</span>
+            <input id="largPa" size="20">
+            <span>Comprimento:</span>
+            <input id="comPa" size="20">
+            <span>altura:</span>
+            <input id="altPa" size="20">
+            <br>
+            <button onclick="calcPa()">Calculo do volume e area total</button>
+            <br>
+            <span>Volume: </span>
+            <input id="volumePa" size="20" readonly="readonly">
+            <span>Area total: </span>
+            <input id="areaPa" size="20" readonly="readonly">
+        
+        <h3>Volume e area total de um cilindro</h3>
+        <span>Raio da base:</span>
+            <input id="raioCil" size="20">
+            <span>altura:</span>
+            <input id="altCil" size="20">
+            <br>
+            <button onclick="calcCil()">Calculo do volume e area total</button>
+            <br>
+            <span>Volume: </span>
+            <input id="volumeCil" size="20" readonly="readonly">
+            <span>Area total: </span>
+            <input id="areaCil" size="20" readonly="readonly">
+            
+        <h3>Volume e area total de uma esfera</h3>
+        <span>Raio:</span>
+            <input id="raioEsf" size="20">
+            <br>
+            <button onclick="calcEsf()">Calculo do volume e area total</button>
+            <br>
+            <span>Volume: </span>
+            <input id="volumeEsf" size="20" readonly="readonly">
+            <span>Area total: </span>
+            <input id="areaEsf" size="20" readonly="readonly">    
+        <script>
+            inic();
+            
+        </script>
+        
+    </body>
+</html>

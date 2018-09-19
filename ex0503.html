@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>200 floats aleatorios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var num_min, num_max;
+            function inic(){
+                num_min = document.getElementById("num_min");
+                num_max =  document.getElementById("num_max");
+            }
+            function lista_float_aleatorio(){
+                var min = num_min.value;
+                var max = num_max.value;
+                var num = 0;
+                
+                for(var i = 0; i < 200; i++){
+                    num = float_aleatorio(min, max).toFixed(3);
+                    document.write(num + "; ");
+                }
+            }
+            function float_aleatorio(min, max){
+                return (Math.random() * (max-min)) + parseFloat(min); //parse ou cast para float?
+                                                                      // Necessario devido a problemas a somar um int a um float
+            }
+
+        </script>
+    </head>
+    <body>
+        <span>Minino: </span><input id="num_min" type="number"><br>
+        <span>Maximo: </span><input id="num_max" type="number"><br>
+        <button onclick="lista_float_aleatorio()" >Ok</button>
+        
+        <script>
+            inic();
+        </script>
+    </body>
+</html>

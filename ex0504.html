@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ex 0504</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function listaNum4Cresc(){
+                document.write("<h3>Lista de numeros com 4 algarismos por ordem crescente</h3>");
+                var i, j, k, l;
+                for(i = 1; i < 10; i++)
+                    for(j = 0; j < 10; j++)
+                        for(k = 0; k < 10; k++)
+                            for(l = 0; l < 10; l++)
+                                if(i<j && j<k && k<l)
+                                    document.write(i +""+ j +""+ k +""+ l + "; ");
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            listaNum4Cresc();
+        </script>
+    </body>
+</html>

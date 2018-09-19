@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Ex 0603 - Canvas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #tela{border: 2px #a33a3a solid;}
+        </style>
+        <script>
+            var graf;
+            function inic(){
+                graf = document.getElementById("tela").getContext("2d");
+            }
+            function modulo(x, y, lado){
+                trianguloSup(x, y, lado);
+                trianguloInf(x, y, lado);
+                trianguloDir(x, y, lado);
+                trianguloEsq(x, y, lado);
+            }
+            function trianguloSup(x, y, lado){
+                graf.fillStyle = "#FFDDBB";
+                graf.strokeStyle = "#a33a3a";
+                graf.lineWidth = 2;
+                graf.beginPath();
+                graf.moveTo(x, y);
+                graf.lineTo(x + lado, y);
+                graf.lineTo(x + lado/2, y + lado/2);
+                graf.lineTo(x, y);
+                graf.closePath();
+                graf.fill();
+                graf.stroke();
+            }
+            function trianguloInf(x, y, lado){
+                graf.fillStyle = "#334455";
+                graf.strokeStyle = "#a33a3a";
+                graf.lineWidth = 2;
+                graf.beginPath();
+                graf.moveTo(x + lado/2, y + lado/2);
+                graf.lineTo(x, y + lado);
+                graf.lineTo(x + lado, y + lado);
+                graf.lineTo(x, y);
+                graf.closePath();
+                graf.fill();
+                graf.stroke();
+            }
+            function trianguloDir(x, y, lado){
+                graf.fillStyle = "#778899";
+                graf.strokeStyle = "#a33a3a";
+                graf.lineWidth = 2;
+                graf.beginPath();
+                graf.moveTo(x + lado/2, y + lado/2);
+                graf.lineTo(x + lado, y + lado);
+                graf.lineTo(x + lado, y);
+                graf.moveTo(x + lado/2, y + lado/2);
+                graf.closePath();
+                graf.fill();
+                graf.stroke();
+            }
+            function trianguloEsq(x, y, lado){
+                graf.fillStyle = "#BB9977";
+                graf.strokeStyle = "#a33a3a";
+                graf.lineWidth = 2;
+                graf.beginPath();
+                graf.moveTo(x, y);
+                graf.lineTo(x, y + lado);
+                graf.lineTo(x + lado/2, y + lado/2);
+                graf.lineTo(x, y);
+                graf.closePath();
+                graf.fill();
+                graf.stroke();
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="tela" width="800" height="600"></canvas>
+        <script>
+            inic();
+            modulo(0, 0, 20); 
+            modulo(20, 0, 40); 
+            modulo(60, 0, 80);
+            modulo(140, 0, 160); 
+            modulo(300, 0, 320);
+        </script>
+    </body>
+</html>

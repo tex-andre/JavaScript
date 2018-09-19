@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #tela{border: 1px #000  solid; background-color: blue;}
+        </style>
+        <script>
+            var L = 800, A = 600;
+            var tela, graf;
+            function inic(){
+                tela = document.getElementById("tela");
+                graf = tela.getContext("2d");
+            }
+            function modulo(x, y, lado){
+                var raio = lado/2;
+                desenhaQuadrado(x, y, lado);
+                desenhaCirculo(x, y, raio);
+            }
+            function desenhaCirculo(x, y, raio){
+                graf.fillStyle = "#ff0";
+                graf.beginPath();
+                graf.arc(x, y, raio, 0, 2*Math.PI);
+                graf.closePath();
+                
+                graf.fill();
+                
+            }
+            function desenhaQuadrado(x, y, lado){
+                graf.fillStyle = "#f00";
+                graf.beginPath();
+                graf.fillRect(x - (lado/2), y - (lado/2), lado, lado);
+                graf.closePath();
+                //graf.fill();    
+            }
+
+        </script>
+    </head>
+    <body>
+        <canvas id="tela" width="800" height="600"></canvas>
+        <script>
+            inic();
+            modulo(200, 200, 50);
+            modulo(400, 200, 75); 
+            modulo(600, 200, 100);
+            modulo(200, 400, 200); 
+            modulo(400, 400, 150); 
+            modulo(600, 400, 125);
+            
+        </script>
+    </body>
+</html>

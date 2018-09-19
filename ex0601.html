@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Ex 0501- Canvas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #tela{ border: 1px solid #000; background-color: blue;}
+        </style>
+        <script>
+            var tela, graf;
+           
+            function inic(){
+                tela = document.getElementById("tela");
+                graf = tela.getContext("2d");
+            }
+            function desenha_coroa(){
+                graf.strokeStyle = "#996600";
+                graf.fillStyle = "#FFDD33";
+                graf.lineWidth = 5;
+             
+                graf.beginPath();
+                //arestas
+                graf.moveTo(100, 300);
+                graf.lineTo(100, 500);
+                graf.lineTo(700, 500);
+                graf.lineTo(700, 300);
+                graf.lineTo(625, 400);
+                graf.lineTo(580, 200);
+                graf.lineTo(490, 350);
+                graf.lineTo(400, 130);
+                graf.lineTo(310, 350);
+                graf.lineTo(220, 200);
+                graf.lineTo(175, 400);
+                graf.lineTo(100, 300);
+                
+                graf.closePath();
+                graf.fill();
+                graf.stroke();
+                circulo(100, 300, 25, "#996600", "#FFDD33", 5);
+                circulo(220, 200, 25, "#996600", "#FFDD33", 5);
+                circulo(400, 130, 25, "#996600", "#FFDD33", 5);
+                circulo(580, 200, 25, "#996600", "#FFDD33", 5);
+                circulo(700, 300, 25, "#996600", "#FFDD33", 5);
+            } 
+            function circulo(x, y, raio, corLinha, cor, esp){
+                // x, y, raio, cor de linha, cor interior, espessura
+                graf.strokeStyle = corLinha;
+                graf.fillStyle = cor;
+                graf.lineWidth = esp;
+                
+                graf.beginPath();
+                graf.arc(x, y, raio, 0, 2*Math.PI);
+                graf.closePath();
+                graf.fill();
+                graf.stroke();
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="tela" width="800" height="600"></canvas>
+        <script>
+            inic();
+            desenha_coroa();
+        </script>
+    </body>
+</html>
+ 

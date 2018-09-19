@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ex0401</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function mostraMultiplos(valor, limMin, limMax){
+                document.write("<h3>Multiplos de " +valor+ " entre " +limMin+ " e "+ limMax +"</h3>");
+                var i;
+                for (i = limMin; i <= limMax; i++){
+                    if(i % valor ==  0){
+                        document.write(i + "; ");
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            mostraMultiplos(13, 0, 500);
+            mostraMultiplos(25, 1000, 2000);
+            mostraMultiplos(111, 1900, 4000);
+        </script>
+        
+    </body>
+</html>

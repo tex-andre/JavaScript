@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Arte 2.0</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #tela{border: 1px #000 solid;}
+        </style>
+        <script>
+            var L = 800, A = 600;
+            var tela, graf;
+            function inic(){
+                tela = document.getElementById("tela");
+                graf = tela.getContext("2d");
+            }
+            function CirculosAleatorios(num, raioMax){
+                for(var i =0; i<num; i++){
+                    x = intAleatorio(L);
+                    y = intAleatorio(A);
+                    raio = intAleatorio(raioMax);
+                    cor = corAleatoria();
+                    pintaCirculo(x, y, raio, cor, Math.random());
+                }
+            }
+            function pintaCirculo(x, y, raio, cor, opac){
+                graf.fillStyle = cor;
+                graf.globalAlpha = opac;
+                graf.beginPath();
+                graf.arc(x, y, raio, 0, 2*Math.PI);
+                graf.closePath();
+                graf.fill();
+            }
+            function intAleatorio(max){
+                return Math.floor(Math.random()*(max + 1))
+            }
+            function corAleatoria(){
+                r = intAleatorio(255);
+                g = intAleatorio(255);
+                b = intAleatorio(255);
+                cor = "rgb(" + r + "," + g + "," + b + ")";
+                return cor;
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="tela" width="800" height="600"></canvas>
+        <script>
+                inic();
+                CirculosAleatorios(150, 80);
+        </script>
+    </body>
+</html>

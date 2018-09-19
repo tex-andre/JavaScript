@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var campo1;
+            function inic(){
+                campo1 = document.getElementById("campo1");
+            }
+            //Esta funcao nao e eficiente, para 7 digitos tempo de execucao notorio
+            function num_palindromicos(){
+                var count = 0;
+                if(campo1.value < "2"){
+                    document.writeln("Valor invalido!");
+                    return ;
+                }
+                for(var i = Math.pow(10, campo1.value - 1); i < Math.pow(10, campo1.value); i++){
+                    //tranforma em string
+                    var num = i.toString(); 
+                    //Separa, inverte, volta a juntar numa string e transforma em int para comparacao
+                    var numInvert = parseInt( num.split("").reverse().join("") ); 
+                    if(numInvert === i){
+                        document.write(i + ", ");
+                        count++;
+                    }
+                }
+                document.writeln("<br>Foram encontrados " + count + " numeros!");
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Numeros polindromicos</h2>
+        <h4>Introduza a quantidade de digitos que os numeros polindomicos vao ter.</h4>
+        <p>Nota: O numero deve ser positivo maior do que 1.</p>
+        <input id="campo1" type="number">
+        <button onclick="num_palindromicos()">Ok</button>
+        <br>
+        <script>
+            inic();
+            //num_palindromicos();
+            
+        </script>
+    </body>
+</html>

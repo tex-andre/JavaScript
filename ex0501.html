@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var campo1;
+            function inic(){
+                campo1 =document.getElementById("campo1");
+            }
+            function inverteTexto_campo1(){
+                campo2.value = inverteString(campo1.value);
+            }
+            function inverteString(str){
+                return str.split("").reverse().join("");
+            }
+            function LimpaCampos(){
+                campo1.value = "";
+                campo2.value = "";
+            }
+        </script>
+    </head>
+    <body>
+        <h3>Introduza texto:</h3><br>
+        <input id="campo1" type="text" size="50"><br>
+        <button onclick="inverteTexto_campo1()" >Inverte o texto</button>
+        <button onclick="LimpaCampos()">Limpar</button>
+        <br><br>
+        <h3>Texto invertido:</h3><br>
+        <input id="campo2"  type="text" size="50" readonly="readonly"><br>
+        <script>
+            inic();
+
+        </script>
+    </body>
+</html>

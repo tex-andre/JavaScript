@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Arte</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #tela{border: 1px solid #000;}
+        </style>
+        <script>
+            var tela, graf;
+            function inic(){
+                tela = document.getElementById("tela");
+                graf = tela.getContext("2d");
+            }
+            function desenho1(){
+                for(var i = 0; i<250; i++){
+                    //gera dois pontos aleatorios para uma tela 800x600
+                    ox = Math.floor(Math.random()*800);
+                    oy = Math.floor(Math.random()*600);
+                    x = Math.floor(Math.random()*800);
+                    y = Math.floor(Math.random()*600);
+                    cor = cor_aleatoria();
+                    linhaAleatoria(ox, oy, x, y, cor, 2);
+                }
+            }
+            function linhaAleatoria(ox, oy, x, y, cor, esp){
+                graf.strokeStyle = cor;
+                graf.lineWidth = esp; // espessura
+
+                graf.beginPath();
+                graf.moveTo(ox, oy); // ponto de origem
+                graf.lineTo(x, y);
+                graf.closePath();
+                graf.stroke();
+            }
+            function cor_aleatoria(){ // gera uma cor rgb aleatoria
+                var letras = "0123456789ABCDEF"; // numeracao hexadecimal
+                var cor = "#";
+                for(var i = 0; i<6; i++){
+                    cor += letras[Math.floor(Math.random()*16)]; 
+                }
+                return cor;
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="tela" width="800" height="600"></canvas>
+        <script>
+            inic();
+            desenho1();
+        </script>
+    </body>
+</html>

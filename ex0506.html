@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <title>Ex 0506</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            
+            function gera_lista(num){
+                var lista = [];
+                for(var i = 0; i<num; i++){
+                    lista.push(gera_num4alg());
+                }
+                return lista;
+            }
+            function gera_num4alg(){
+                min = 1000;
+                max = 9999;
+                return Math.floor(Math.random()*(max-min) + min);
+            }
+            function mostraLista(lista){
+                document.write("<h3>Lista de 1000 numeros gerados aleatoriamente:</h3>");
+                for(var i = 0; i< lista.length; i++)
+                    document.write(lista[i] + "; ");
+            }
+            function media(lista){
+                var soma = 0, media;
+                for(var i = 0; i< lista.length; i++)
+                    soma += lista[i];
+                media = parseInt(soma/lista.length);
+                document.write("<br><b>A  media dos valores da lista e: </b>" + media);
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var lista;
+            lista = gera_lista(1000);
+            mostraLista(lista);
+            media(lista);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ex 0505</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #texto1{width: 500px;}
+            #texto2{width: 500px; background-color: #f7f6b7; color: #b74242; border: 1px solid #b74242; padding: 10px;}
+            #contagem{text-align: left}
+        </style>
+        <script>
+            var texto1, texto2, contagem;
+            function inic(){
+                texto1 = document.getElementById("texto1");
+                texto2 = document.getElementById("texto2");
+                contagem = document.getElementById("contagem");
+            }
+            function transfere_texto(){
+                texto2.innerHTML = texto1.value;
+            }
+            function contaPalavras(){
+                var aux;
+                aux = texto2.innerHTML.split(" ");
+                contagem.value = aux.length;
+            }
+            function limpar(){
+                texto1.value = "";
+                texto2.innerHTML = "";
+            }
+        </script>
+    </head>
+    <body>
+        <h3>Introduza texto:</h3>
+        <input id="texto1" type="text" size="50"><br>
+        <button onclick="transfere_texto()">Transfere texto</button>
+        <button onclick="limpar()">Limpar</button>
+        <h3>Texto introduzido:</h3>
+        <div id="texto2"></div>
+        <button onclick="contaPalavras()">Numero de palavras do texto: </button>
+        <input id="contagem" size="3" readonly="readonly">
+        <script>
+            inic();
+        </script>
+    </body>
+</html>
